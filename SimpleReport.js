@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SimpleReport = void 0;
-
 class SimpleReport {
     constructor(mapData) {
         this._mapData = mapData;

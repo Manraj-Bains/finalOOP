@@ -11,13 +11,13 @@
 //     console.log("---End of Map---")
 //   }
 Object.defineProperty(exports, "__esModule", { value: true });
-
+//   main();
 const Map_1 = require("./Map");
 const reportMaker_1 = require("./reportMaker");
 const SimpleReport_1 = require("./SimpleReport");
-import { ComplexReport } from './ComplexReport';
+const ComplexReport_1 = require("./ComplexReport");
 function main() {
-    const map = new Map_1.Map('./data.json');
+    const map = new Map_1.Map('data.json');
     console.log("Initial Map:");
     map.printMap();
     const currentIntakeAge = 50;
@@ -27,9 +27,8 @@ function main() {
     const simpleReport = new SimpleReport_1.SimpleReport(map.getData());
     const simpleReportMaker = new reportMaker_1.ReportMaker(simpleReport);
     simpleReportMaker.printDetails();
-    const complexReport = new ComplexReport(map.getData());
-    const complexReportMaker = new ReportMaker(complexReport);
+    const complexReport = new ComplexReport_1.ComplexReport(map.getData());
+    const complexReportMaker = new reportMaker_1.ReportMaker(complexReport);
     complexReportMaker.printDetails();
 }
 main();
-;

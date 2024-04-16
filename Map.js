@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Queue = exports.Map = void 0;
-
+// Map.ts
 const fs_1 = __importDefault(require("fs"));
 class Queue {
     constructor() {
@@ -20,7 +20,6 @@ class Queue {
         return this.people.length;
     }
     getCurrentWaitTime() {
-        // Assuming each person has a 15 minute wait time
         return this.size() * 15;
     }
 }
@@ -42,17 +41,16 @@ class Map {
                             return (Math.abs(curr.blockNum - household.blockNum) < Math.abs(prev.blockNum - household.blockNum)) ? curr : prev;
                         });
                         nearestClinic.queue.enqueue(person);
-                        person.isVaccinated = true; 
+                        person.isVaccinated = true;
                     }
                 }
             }
         }
     }
     printMap() {
-        // Logic to print an ASCII map based on the data
         const mapRepresentation = [];
         Object.entries(this._mapData).forEach(([cityName, city], cityIndex) => {
-            const cityMap = Array(3).fill('x'); 
+            const cityMap = Array(3).fill('x');
             city.households.forEach(household => {
                 const symbol = household.inhabitants.some(person => !person.isVaccinated) ? 'H' : 'F';
                 cityMap[household.blockNum] = symbol;

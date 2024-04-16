@@ -1,5 +1,5 @@
-import { IReport } from './IReport';
-import { CityData } from './Map'; 
+import { IReport } from './IReport'; 
+import { CityData, Queue } from './Map';
 
 export class ComplexReport implements IReport {
   private _mapData: CityData;
@@ -10,11 +10,12 @@ export class ComplexReport implements IReport {
 
   public printDetails(): void {
     console.log('Complex Report:');
-    Object.entries(this._mapData).forEach(([cityName, city]) => {
+    for (const cityName in this._mapData) {
+      const city = this._mapData[cityName];
       city.clinics.forEach(clinic => {
-        const waitTime = clinic.queue.getCurrentWaitTime();
+        const waitTime = clinic.queue.getCurrentWaitTime(); 
         console.log(`${clinic.name} - Average Wait Time: ${waitTime} mins, People in queue: ${clinic.queue.size()}`);
       });
-    });
+    }
   }
 }

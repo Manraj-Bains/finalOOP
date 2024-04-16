@@ -12,14 +12,13 @@
   
 //   main();
 
-
 import { Map } from './Map';
 import { ReportMaker } from './reportMaker';
 import { SimpleReport } from './SimpleReport';
 import { ComplexReport } from './ComplexReport';
 
 function main() {
-  const map = new Map('./data.json');
+  const map = new Map('data.json');
   console.log("Initial Map:");
   map.printMap();
 
@@ -38,5 +37,6 @@ function main() {
   complexReportMaker.printDetails();
 }
 
-main();;
+main();
+
 

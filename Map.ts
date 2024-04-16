@@ -60,7 +60,7 @@ class Map {
     return this._mapData;  
   }
 
-  registerForShots(currentIntakeAge: number) {
+  registerForShots(currentIntakeAge: number): void {
     for (const city of Object.values(this._mapData)) {
       for (const household of city.households) {
         for (const person of household.inhabitants) {
@@ -76,7 +76,7 @@ class Map {
     }
   }
 
-  printMap() {
+  printMap(): void {
     const mapRepresentation: string[] = [];
 
     Object.entries(this._mapData).forEach(([cityName, city], cityIndex) => {
@@ -96,6 +96,8 @@ class Map {
 
     console.log(mapRepresentation.join('\n'));
   }
+  
 }
+
 
 export { Map, Person, Household, Clinic, Queue, CityData };
